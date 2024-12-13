@@ -17,6 +17,7 @@ class Usuario(Base):
     nome = Column(String, nullable=False)
     idade = Column(Integer, nullable=False)
 
+# Crias as tabelas no banco de dados
 Base.metadata.create_all(engine)
 
 print("Tabela Criada com SQLite estabelecida.")

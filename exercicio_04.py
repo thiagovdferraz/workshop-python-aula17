@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 
 
 # Conectar ao SQLite em memória
@@ -25,10 +25,14 @@ print("Tabela Criada com SQLite estabelecida.")
 # assumindo que engine já foi criado
 
 Session = sessionmaker(bind=engine)
-session = Session()
+# session = Session()
+
+# novo_usuario = Usuario(nome='Tico', idade=20)
+# session.add(novo_usuario)
+# session.commit()
 
 with Session() as session:
-    novo_usuario = Usuario(nome='Thiago', idade=36)
+    novo_usuario = Usuario(nome='Vinicius', idade=36)
     session.add(novo_usuario)
     # O commit é feito automaticamente aqui, se não houver exceções
     # O rollback é automaticamente chamado se uma exceção ocorrer
